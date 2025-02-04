@@ -58,22 +58,5 @@ export class AddSensorComponent implements OnInit {
     }
   }
 
-  // onFileSelected(event: Event) {
-  //   const file = (event.target as HTMLInputElement).files?.[0];
-  //   debugger;
-  //   if (file) {
-  //     const reader = new FileReader();
-  //     reader.onload = () => {
-  //       if (this.deviceType !== undefined) {
-  //         this.newSensor.DeviceType = this.deviceType.deviceType;
-  //         this.newSensor.Picture=this.deviceType.picture;
-  //         this.newSensor.WebSiteDeviceName=this.deviceType.deviceTypeHebrew;
-  //       }
-
-  //       this.newSensor.Picture = reader.result as string; // שמירה כ-Base64
-  //       console.log(reader.result);
-  //     };
-  //     reader.readAsDataURL(file);
-  //   }
-  // }
+ 
 }
