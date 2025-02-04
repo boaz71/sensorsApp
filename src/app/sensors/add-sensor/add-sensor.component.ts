@@ -22,6 +22,7 @@ export class AddSensorComponent implements OnInit {
   newSensor: Sensor = {
     DeviceId: '',
     WebSiteDeviceName: '',
+    DeviceTypeHebrew:'',
     DeviceOK: 1,
     LastReportDate: new Date().toISOString(),
     Picture: '',
@@ -53,7 +54,7 @@ export class AddSensorComponent implements OnInit {
       debugger;
       this.newSensor.DeviceType = selectedType.deviceType;
       this.newSensor.Picture = selectedType.picture;
-      this.newSensor.WebSiteDeviceName = selectedType.deviceTypeHebrew;
+      this.newSensor.DeviceTypeHebrew = selectedType.deviceTypeHebrew;
     }
   }
 

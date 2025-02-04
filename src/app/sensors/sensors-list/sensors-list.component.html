@@ -5,8 +5,9 @@
     <div class="sensor-grid">
       <mat-card *ngFor="let sensor of sensors">
         <img [src]="'images/' + sensor.Picture + '.png'" alt="sensor image"/>
-        <h3>{{ sensor.WebSiteDeviceName }}</h3>
-        <p>תאריך עדכון אחרון: {{ sensor.LastReportDate }}</p>
+        <h3 style="color:brown">{{ sensor.WebSiteDeviceName }}</h3>
+        <h4 style="color:blue;">{{ sensor.DeviceTypeHebrew }}</h4>
+        <p>תאריך עדכון אחרון: {{ sensor.LastReportDate | date:'yyyy-MM-dd HH:mm' }}</p>
         <button mat-icon-button (click)="toggleStatus(sensor)">
           <mat-icon [ngClass]="sensor.DeviceOK ? 'green' : 'red'">circle</mat-icon>
         </button>
