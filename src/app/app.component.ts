@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { SensorsListComponent } from "./sensors/sensors-list/sensors-list.component";
+
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, SensorsListComponent],
+  imports: [RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
