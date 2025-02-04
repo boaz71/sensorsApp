@@ -1,0 +1,36 @@
+[
+    {
+        "deviceTypeHebrew":"גלאי תנועה",
+        "deviceType": "Motion",
+        "picture": "motion_hanxi"
+    },
+    {
+        "deviceTypeHebrew":"גלאי דלת/חלון",
+        "deviceType": "Contact",
+        "picture": "contact_hanxi"
+    },
+    {
+        "deviceTypeHebrew":"גלאי הצפה",
+        "deviceType": "Water",
+        "picture": "water_philio"
+    },
+    {
+        "deviceTypeHebrew":"בקר דוד",
+        "deviceType": "Boiler",
+        "picture": "boiler_mco_rect"
+    },
+    {
+        "deviceTypeHebrew":"בקר תאורה",
+        "deviceType": "ZwaveLight",
+        "picture": "zwavelight_mcohome_rect"
+    },
+    {
+        "deviceTypeHebrew":"מצלמה",
+        "deviceType": "Camera",
+        "picture": "motion_hanxi"
+    }
+
+  
+
+]
+

@@ -1,0 +1,18 @@
+<div class="container">
+    <h2>ניהול חיישנים</h2>
+    <p>סה"כ: {{ sensors.length }} | תקינים: {{ getWorkingCount() }} | תקולים: {{ getFaultyCount() }}</p>
+    <button mat-raised-button color="primary" (click)="navigateToAdd()">הוסף חיישן</button>
+    <div class="sensor-grid">
+      <mat-card *ngFor="let sensor of sensors">
+        <img [src]="'images/' + sensor.Picture + '.png'" alt="sensor image"/>
+        <h3>{{ sensor.WebSiteDeviceName }}</h3>
+        <p>תאריך עדכון אחרון: {{ sensor.LastReportDate }}</p>
+        <button mat-icon-button (click)="toggleStatus(sensor)">
+          <mat-icon [ngClass]="sensor.DeviceOK ? 'green' : 'red'">circle</mat-icon>
+        </button>
+      
+      </mat-card>
+    </div>
+  </div>
+
+  

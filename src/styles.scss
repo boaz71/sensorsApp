@@ -1,1 +1,47 @@
 /* You can add global styles to this file, and also import other style files */
+  
+// Import Angular Material theming
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+// // Import Angular Material theming
+// @import "../node_modules/@angular/material/theming";
+// @import "../node_modules/@angular/material/core/theming/all-theme"; // Import all theming utilities
+// @import "../node_modules/@angular/material/core/theming/palette"; // Import palette utilities
+// @import "../node_modules/@angular/material/core/theming/typography"; // Import typography utilities
+// @import "../node_modules/@angular/material/core/theming/layout"; // Import layout utilities
+
+// // Define your custom theme
+// $my-app-primary: mat-palette($mat-indigo);
+// $my-app-accent: mat-palette($mat-pink, A200, A100, A400);
+// $my-app-theme: mat-light-theme($my-app-primary, $my-app-accent);
+
+// @include angular-material-theme($my-app-theme);
+
+// @include mat-xs-screen {
+//   .mat-card {
+//     margin: 8px;
+//   }
+// }
+
+// /* עבור מסכים בינוניים */
+// @include mat-md-screen {
+//   .mat-card {
+//     margin: 16px;
+//   }
+// }
+
+// .mat-menu {
+//   background-color: #fff;
+//   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+// }
+
+// .mat-dialog-container {
+//   padding: 16px;
+// }
+
+// .mat-card {
+//   width: 100%; /* לכל הכרטיסים יהיה רוחב אוטומטי */
+// }

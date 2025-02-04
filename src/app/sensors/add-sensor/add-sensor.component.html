@@ -1,0 +1,24 @@
+<div class="form-container">
+    <h2>הוסף חיישן חדש</h2>
+    <mat-form-field>
+      <mat-label>שם החיישן</mat-label>
+      <input matInput [(ngModel)]="newSensor.WebSiteDeviceName">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>סוג</mat-label>
+      <mat-form-field>
+        <mat-label>סוג התקן</mat-label>
+        <mat-select [(ngModel)]="selectedDeviceType" (blur)="onSelectionChange()">
+          <mat-option *ngFor="let type of deviceTypes" [value]="type.deviceType" >
+            <img [src]="'images/' + type.picture + '.png'" alt="{{ type.deviceType }}" width="24" height="24" style="margin-right: 8px;">
+            {{ type.deviceTypeHebrew }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      
+    </mat-form-field>
+   
+      
+  
+    <button mat-raised-button color="primary" (click)="saveSensor()">שמור</button>
+  </div>
