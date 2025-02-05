@@ -1,13 +1,45 @@
 <div class="container">
     <h2>ניהול חיישנים</h2>
-    <p>סה"כ: {{ sensors.length }} | תקינים: {{ getWorkingCount() }} | תקולים: {{ getFaultyCount() }}</p>
-    <button mat-raised-button color="primary" (click)="navigateToAdd()">הוסף חיישן</button>
+
+    <p>סה"כ: <span style="color: blue;">{{ sensors.length }}</span> | תקינים: <span style="color: green;">{{ getWorkingCount() }}</span> | תקולים: <span style="color: red;">{{ getFaultyCount() }}</span></p>
+    <div>
+      <button mat-raised-button color="primary" (click)="navigateToAdd()">הוסף חיישן</button>
+    </div>
+    <div class="filters" style="margin-top: 10px;"> 
+
+      <button style="margin-right: 5px;" mat-raised-button color="warn" (click)="resetFilters()">איפוס סינון</button>
+
+      <mat-form-field appearance="outline">
+        <mat-label>חפש לפי שם</mat-label>
+        <input matInput [(ngModel)]="searchTerm" placeholder="הקלד שם">
+      </mat-form-field>
+    
+      
+
+      <mat-form-field appearance="outline">
+        <mat-label>תאריך סיום</mat-label>
+        <input matInput [matDatepicker]="endPicker" [(ngModel)]="endDate">
+        <mat-datepicker-toggle matIconSuffix [for]="endPicker"></mat-datepicker-toggle>
+        <mat-datepicker #endPicker></mat-datepicker>
+      </mat-form-field>
+      
+      <mat-form-field appearance="outline">
+        <mat-label>תאריך התחלה</mat-label>
+        <input matInput [matDatepicker]="startPicker" [(ngModel)]="startDate">
+        <mat-datepicker-toggle matIconSuffix [for]="startPicker"></mat-datepicker-toggle>
+        <mat-datepicker #startPicker></mat-datepicker>
+      </mat-form-field>
+      
+    </div>
+    
+
     <div class="sensor-grid">
-      <mat-card *ngFor="let sensor of sensors">
+      <mat-card *ngFor="let sensor of getFilteredSensors()">
         <img [src]="'images/' + sensor.Picture + '.png'" alt="sensor image"/>
         <h3 style="color:brown">{{ sensor.WebSiteDeviceName }}</h3>
         <h4 style="color:blue;">{{ sensor.DeviceTypeHebrew }}</h4>
         <p>תאריך עדכון אחרון: {{ sensor.LastReportDate | date:'yyyy-MM-dd HH:mm' }}</p>
+
         <button mat-icon-button (click)="toggleStatus(sensor)">
           <mat-icon [ngClass]="sensor.DeviceOK ? 'green' : 'red'">circle</mat-icon>
         </button>

@@ -3,6 +3,7 @@ import { APP_IMPORTS,APP_PROVIDERS } from '../../app.shared';
 import { SensorsService } from '../../services/sensors.service';
 import { Router } from '@angular/router';
 import { Sensor } from '../../models/sensor.model';
+import { startOfDay, endOfDay, subMonths } from 'date-fns';
 
 @Component({
   selector: 'app-sensors-list',
@@ -17,6 +18,10 @@ import { Sensor } from '../../models/sensor.model';
 })
 export class SensorsListComponent implements OnInit {
 
+  searchTerm: string = '';
+  startDate!: Date;
+  endDate!: Date;
+
   sensors: Sensor[] = [];
   
 
@@ -25,6 +30,7 @@ export class SensorsListComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.setDefaultDateRange();
   }
 
 
@@ -45,4 +51,33 @@ export class SensorsListComponent implements OnInit {
     this.router.navigate(['/add-sensor']);
   }
 
+  resetFilters() {
+    
+    this.setDefaultDateRange()
+    this.searchTerm = '';
+  }
+
+  setDefaultDateRange() {
+
+    this.endDate = endOfDay(new Date()); 
+    this.startDate = startOfDay(subMonths(new Date(), 1)); 
+
+  }
+
+  getFilteredSensors() {
+    return this.sensors.filter(sensor => {
+      const matchesName = this.searchTerm
+        ? sensor.WebSiteDeviceName.toLowerCase().includes(this.searchTerm.toLowerCase())
+        : true;
+  
+      const sensorDate = new Date(sensor.LastReportDate);
+      const matchesStartDate = this.startDate ? sensorDate >= new Date(this.startDate) : true;
+      const matchesEndDate = this.endDate ? sensorDate <= new Date(this.endDate) : true;
+  
+      return matchesName && matchesStartDate && matchesEndDate;
+    });
+  }
+
 }
+
+
