@@ -19,12 +19,12 @@ export class SensorsService {
   constructor(private http:HttpClient) { 
     this.http.get<Sensor[]>('assets/sensors.json').subscribe(
       data => this.sensorsSubject.next(data),
-      error => console.error('Error loading sensors:', error) // Add error handling
+      error => console.error('Error loading sensors:', error) 
     );
 
     this.http.get<DeviceType[]>('assets/deviceTypes.json').subscribe( 
       data => this.deviceTypesSubject.next(data),
-      error => console.error('Error loading device types:', error) // Add error handling
+      error => console.error('Error loading device types:', error) 
     );
 
   }
